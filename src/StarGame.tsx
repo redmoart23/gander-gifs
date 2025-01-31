@@ -6,6 +6,18 @@ import { AnimatePresence, motion } from "framer-motion";
 import Confetti from "react-confetti";
 //const genderImages = ["AZUL.gif", "ROSADO.gif"];
 
+const starsImages = [
+  "AZUL.gif",
+  "ROSADO.gif",
+  "AZUL.gif",
+  "AZUL.gif",
+  "AZUL.gif",
+  "ROSADO.gif",
+  "ROSADO.gif",
+  "ROSADO.gif",
+  "AZUL.gif",
+];
+
 export default function StarGame() {
   const [stars, setStars] = useState(
     Array(9).fill("DURMIENDO.gif") // Adjust the number of stars
@@ -13,27 +25,12 @@ export default function StarGame() {
 
   const [activateDialog, setActivateDialog] = useState(false);
 
-  const getRandomGender = () => {
-    const stars = [
-      "AZUL.gif",
-      "AZUL.gif",
-      "AZUL.gif",
-      "AZUL.gif",
-      "AZUL.gif",
-      "AZUL.gif",
-      "ROSADO.gif",
-      "AZUL.gif",
-      "AZUL.gif",
-    ];
-
-    return stars[Math.floor(Math.random() * stars.length)];
-  };
   const handleStarClick = (index: number) => {
     setStars((prevStars) => {
       const updatedStars = prevStars.map((star, i) =>
         i === index
           ? star === "DURMIENDO.gif"
-            ? getRandomGender()
+            ? starsImages[i]
             : "DURMIENDO.gif"
           : star
       );
