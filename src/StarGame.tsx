@@ -4,7 +4,7 @@ import { DialogHeader } from "./components/ui/dialog";
 import { X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import Confetti from "react-confetti";
-const genderImages = ["AZUL.gif", "ROSADO.gif"];
+//const genderImages = ["AZUL.gif", "ROSADO.gif"];
 
 export default function StarGame() {
   const [stars, setStars] = useState(
@@ -14,7 +14,19 @@ export default function StarGame() {
   const [activateDialog, setActivateDialog] = useState(false);
 
   const getRandomGender = () => {
-    return genderImages[Math.floor(Math.random() * genderImages.length)];
+    const stars = [
+      "AZUL.gif",
+      "AZUL.gif",
+      "AZUL.gif",
+      "AZUL.gif",
+      "AZUL.gif",
+      "AZUL.gif",
+      "ROSADO.gif",
+      "AZUL.gif",
+      "ROSADO.gif",
+    ];
+
+    return stars[Math.floor(Math.random() * stars.length)];
   };
   const handleStarClick = (index: number) => {
     setStars((prevStars) => {
@@ -26,14 +38,11 @@ export default function StarGame() {
           : star
       );
 
-      
       // Check if all stars have been clicked at least once
       if (!updatedStars.includes("DURMIENDO.gif")) {
-        
         setTimeout(() => {
           setActivateDialog(true);
         }, 500);
-
       }
 
       return updatedStars;
