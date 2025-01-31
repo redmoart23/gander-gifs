@@ -23,7 +23,7 @@ export default function StarGame() {
       "AZUL.gif",
       "ROSADO.gif",
       "AZUL.gif",
-      "ROSADO.gif",
+      "AZUL.gif",
     ];
 
     return stars[Math.floor(Math.random() * stars.length)];
